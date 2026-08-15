@@ -6,7 +6,34 @@ API backend para un chatbot con integración a MySQL y conexión opcional con Ol
 
 - .NET SDK 10
 - MySQL Server
+- Ollama instalado y ejecutándose localmente
 - Git
+
+## Instalación de Ollama
+
+Este proyecto usa Ollama para generar respuestas con el modelo `medgemma:4b`.
+
+1. Descarga e instala Ollama desde su sitio oficial:
+   https://ollama.com/download
+2. Inicia el servicio de Ollama:
+
+```bash
+ollama serve
+```
+
+3. Descarga el modelo requerido:
+
+```bash
+ollama pull medgemma:4b
+```
+
+4. Verifica que el modelo esté disponible:
+
+```bash
+ollama list
+```
+
+> El servicio de la API consulta la URL `http://localhost:11434/api/generate`, por lo que Ollama debe estar activo antes de ejecutar la aplicación.
 
 ## Clonar y abrir el proyecto
 
@@ -22,7 +49,7 @@ El proyecto usa la cadena de conexión `DefaultConnection` definida en `appsetti
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;Database=chatbot_db;Uid=root;Pwd=123qwe;"
+    "DefaultConnection": "Server=localhost;Port=3306;Database=chatbot_db;Uid=[Tu usuario];Pwd=[Tu Password];"
   }
 }
 ```
